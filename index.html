@@ -7,16 +7,39 @@
     <title>clock</title>
 </head>
 <body>
-    <div class="clock">
+    <div id="clock">
         <div class="one"><h3>12</h3></div>
        <div class="three"><h3>3</h3></div>
        <div class="six"><h3>6</h3></div>
        <div class="nine"><h3>9</h3></div>
        <div class="center">
        </div>
-        <div class="hour"></div>
-        <div class="min"></div>
-        <div class="sec"></div>
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="sec"></div>
     </div>
+    <script>
+        const de=6;
+        let hhour =document.getElementById("hour");
+        let mmin =document.getElementById("min");
+        let ss =document.getElementById("sec");
+        setInterval(() => {
+            var d = new Date();
+              let second =d.getSeconds();
+              let hours =d.getHours();
+              let minutes = d.getMinutes();
+             
+              const secdgree=(((second/60)*360));
+                  ss.style.transform = `rotate(${secdgree}deg)`
+              const mindgree=(((minutes/60)*360));
+                   mmin.style.transform = `rotate(${mindgree}deg)`
+              const hourdgree=(((hours/60)*360)+90);
+                  hhour.style.transform = `rotate(${hourdgree}deg)`
+            
+              
+             
+        }, 1000);
+    </script>
 </body>
+
 </html>
